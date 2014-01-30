@@ -528,6 +528,29 @@ function() {
     }
     result.value = fixMarkup(result.value);
 
+    // Adds line numbers
+    var class_name = block.className;
+    if (class_name && class_name.indexOf('lineNumbers') != -1) {
+      var lineCount = startNumber >= 0 ? parseInt(startNumber) + 1 : 1;
+      for (var i = 0; i < text.length; ++i) {
+        if (text.charCodeAt(i) == 10) {
+          lineCount++;
+        }
+      }
+      var lineNumberColumnWidth = Math.floor(Math.log(lineCount) / Math.log(10));
+
+      var resultPre = document.createElementNS('http://www.w3.org/1999/xhtml', 'pre');
+      resultPre.innerHTML = result.value;
+      var linesPre = document.createElementNS('http://www.w3.org/1999/xhtml', 'pre');
+      var lines = escape(text).replace(/^/gm, '<span class="line line-width-' + lineNumberColumnWidth + '"></span>');
+      linesPre.innerHTML = lines;
+      result.value = mergeStreams(nodeStream(linesPre), nodeStream(resultPre), text);
+      var startNumber = class_name.match(/(?:|\s)*lineNumbers(?::([\d]*)|)/)[1];
+      if (startNumber) {
+        block.style.counterReset = 'lines ' + startNumber;
+      }
+    }
+
     block.innerHTML = result.value;
     block.className += ' hljs ' + (!language && result.language || '');
     block.result = {

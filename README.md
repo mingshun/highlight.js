@@ -1,3 +1,34 @@
+# Enhanced Highlight.js for personal usage
+
+Forked from [isagalaev/highlight.js][ih]
+
+[ih]: https://github.com/isagalaev/highlight.js
+
+Added line numbers display, reference [Highlight.js line numbers][hln]
+
+[hln]: http://www.minh.io/tech/2013/08/17/highlightjs-line-numbers/
+
+Also added some features and styles to improve experience of line numbers display.
+Hence, place `lineNumbers` in the class property of `code` tag:
+
+```html
+<pre>
+<code class="lineNumbers">@requires_authorization
+def somefunc(param1='', param2=0):
+    r'''A docstring'''
+    if param1 &gt; param2: # interesting
+        print 'Gre\'ater'
+    return (param2 - param1 + 1 + 0b10l) or None
+
+class SomeClass:<br>    pass
+
+&gt;&gt;&gt; message = '''interpreter
+... prompt'''
+</code></pre>
+```
+
+---
+
 # Highlight.js
 
 Highlight.js highlights syntax in code examples on blogs, forums and,
