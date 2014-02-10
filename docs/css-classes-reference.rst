@@ -404,8 +404,8 @@ C++ ("cpp", "c", "h", "c++", "h++")
 * ``preprocessor``:     preprocessor directive
 * ``stl_container``:    instantiation of STL containers ("vector<...>")
 
-Objective C ("objectivec", "m", "mm")
--------------------------------------
+Objective C ("objectivec", "m", "mm", "objc", "obj-c")
+------------------------------------------------------
 
 * ``keyword``:          keyword
 * ``built_in``:         Cocoa/Cocoa Touch constants and classes
@@ -503,11 +503,10 @@ Maya Embedded Language ("mel")
 SQL ("sql")
 -----------
 
-* ``keyword``:          keyword (mostly SQL'92 and SQL'99)
+* ``keyword``:          keyword (mostly SQL'92, SQL'99 and T-SQL)
 * ``number``:           number
 * ``string``:           string (of any type: "..", '..', \`..\`)
 * ``comment``:          comment
-* ``aggregate``:        aggregate function
 
 Smalltalk ("smalltalk", "st")
 -----------------------------
